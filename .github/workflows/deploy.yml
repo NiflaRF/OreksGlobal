@@ -1,13 +1,15 @@
 name: Deploy to cPanel via FTP
 
+# The git repo root is OreksGlobal/, so this file must live here (GitHub ignores
+# workflows in subfolders) and the Laravel app is in OreksglobalwebLaravel/.
+#
 # Server layout: the whole Laravel project lives in /public_html/ (relative to the
 # FTP user's home). A root .htaccess (generated below) sends every request to
 # public/, so app/, config/, vendor/ etc. are never served directly.
 #
-# One-time server setup: create these folders under /public_html/ (they are not
-# deployed, so they survive every release) and make them writable:
-#   storage/framework/{cache/data,sessions,views}, storage/logs, bootstrap/cache
-# and create /public_html/.env with the production settings.
+# One-time server setup: create /public_html/.env with the production settings
+# (it is never deployed). The storage/ and bootstrap/cache folders are created
+# by the first deploy; runtime files inside them are never overwritten.
 
 on:
   push:
@@ -17,6 +19,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: OreksglobalwebLaravel
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,6 +40,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: OreksglobalwebLaravel/package-lock.json
 
       - name: Install front-end dependencies
         run: npm ci
@@ -59,6 +65,10 @@ jobs:
             --exclude '.env.*' \
             --exclude '.git' \
             --exclude '.github'
+          # Runtime folders: created on the first deploy, then left alone
+          for d in storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache; do
+            mkdir -p "dist/$d" && touch "dist/$d/.gitkeep"
+          done
           # Send all requests to public/ and hide dotfiles
           cat > dist/.htaccess <<'EOF'
           <IfModule mod_rewrite.c>
@@ -76,7 +86,7 @@ jobs:
           username: orekqvyv
           password: ${{ secrets.FTP_PASSWORD }}
           # protocol: ftps   # enable if the host supports it (encrypts the password)
-          local-dir: ./dist/
+          local-dir: ./OreksglobalwebLaravel/dist/
           server-dir: /public_html/
 
       # Migration step disabled for now - hits the token-gated
