@@ -1,8 +1,18 @@
 name: Deploy to cPanel via FTP
 
+# Server layout: the whole Laravel project lives in /public_html/ (relative to the
+# FTP user's home). A root .htaccess (generated below) sends every request to
+# public/, so app/, config/, vendor/ etc. are never served directly.
+#
+# One-time server setup: create these folders under /public_html/ (they are not
+# deployed, so they survive every release) and make them writable:
+#   storage/framework/{cache/data,sessions,views}, storage/logs, bootstrap/cache
+# and create /public_html/.env with the production settings.
+
 on:
   push:
-    branches: [master]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,10 +21,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install front-end dependencies
         run: npm ci
@@ -22,24 +42,42 @@ jobs:
       - name: Build production assets
         run: npm run build
 
-      - name: Deploy to live server
+      - name: Stage release
+        run: |
+          mkdir -p dist
+          rsync -a ./ dist/ \
+            --exclude '/dist' \
+            --exclude '/node_modules' \
+            --exclude '/tests' \
+            --exclude '/public/hot' \
+            --exclude '/storage/logs' \
+            --exclude '/storage/framework' \
+            --exclude '/storage/app/public' \
+            --exclude '/bootstrap/cache' \
+            --exclude '/database/*.sqlite' \
+            --exclude '.env' \
+            --exclude '.env.*' \
+            --exclude '.git' \
+            --exclude '.github'
+          # Send all requests to public/ and hide dotfiles
+          cat > dist/.htaccess <<'EOF'
+          <IfModule mod_rewrite.c>
+              RewriteEngine On
+              RewriteRule ^\.(?!well-known) - [F,L]
+              RewriteCond %{REQUEST_URI} !^/public/
+              RewriteRule ^(.*)$ public/$1 [L]
+          </IfModule>
+          EOF
+
+      - name: Deploy to /public_html/
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: server209.web-hosting.com
           username: orekqvyv
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
+          # protocol: ftps   # enable if the host supports it (encrypts the password)
+          local-dir: ./dist/
           server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.cpanel.yml
-            **/node_modules/**
-            **/.env
-            **/storage/app/public/**
-            **/storage/logs/**
-            **/storage/framework/**
 
       # Migration step disabled for now - hits the token-gated
       # /deploy/migrate webhook (DeployController) to run

@@ -16,7 +16,7 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-        <script>window.APP_BASE = @json(request()->getBasePath());</script>
+        <script>window.APP_BASE = @json(rtrim(parse_url(config('app.url'), PHP_URL_PATH) ?: '', '/'));</script>
         <!-- Scripts -->
         @routes
         @viteReactRefresh
