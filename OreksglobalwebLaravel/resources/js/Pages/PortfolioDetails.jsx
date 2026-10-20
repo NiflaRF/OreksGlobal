@@ -7,13 +7,13 @@ export default function PortfolioDetails() {
         <PublicLayout>
             <Head title="Portfolio Details" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Lorry / Van <span className="title-gradient">Model</span></>} breadcrumb={{ current: 'Lorry / Van Model' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Lorry / Van <span className="title-gradient">Model</span></>} breadcrumb={{ current: 'Lorry / Van Model' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-details section-gap tj-theme-bg-2">
                     <div className="container">
                         <div className="row rg-60">
                             <div className="col-lg-8">
                                 <div className="tj-details-wrapper">
-                                    <div className="tj-details-img tj-fade-anim"><img src="/assets/images/oreks/gallery/lorry-van-cart-1.jpg" alt="OREKS Crush Lorry/Van Model vending cart" /></div>
+                                    <div className="tj-details-img tj-fade-anim"><img src={appUrl("/assets/images/oreks/gallery/lorry-van-cart-1.jpg")} alt="OREKS Crush Lorry/Van Model vending cart" /></div>
                                     <h2 className="tj-details-title tj-split-text-1">Lorry/Van Model: mobile vending, built for the road.</h2>
                                     <div className="tj-details-text">
                                         <p className="tj-fade-anim">The Lorry/Van Model is OREKS Crush's mobile vending cart — a self-contained unit that mounts onto your own lorry or van.</p>

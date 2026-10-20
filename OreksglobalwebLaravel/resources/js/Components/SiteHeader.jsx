@@ -1,7 +1,22 @@
+import { useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import { navItems } from '@/data/site';
 
 export default function SiteHeader() {
+    // main.js hides the preloader on window "load", which fires before React
+    // renders it, so hide it once the component has mounted.
+    useEffect(() => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.classList.remove('is-loading');
+            preloader.classList.add('is-loaded');
+            preloader.style.display = 'none';
+        }
+        if (typeof window.gsapController === 'function') {
+            window.gsapController();
+        }
+    }, []);
+
     return (
         <>
             <div className="body-overlay"></div>
@@ -10,7 +25,7 @@ export default function SiteHeader() {
                 <div className="loading-container">
                     <div className="loading"></div>
                     <div id="loading-icon">
-                        <img src="/assets/images/logos/logo-icon.png" alt="Loading" />
+                        <img src={appUrl("/assets/images/logos/logo-icon.png")} alt="Loading" />
                     </div>
                 </div>
             </div>
@@ -71,14 +86,14 @@ export default function SiteHeader() {
             <div className="hamburger-area hamburger-area-mrc">
                 <div className="hamburger_bg"></div>
                 <div className="hamburger-blur-shape">
-                    <img src="/assets/images/shapes/h3-sidebar-blur-shpe.png" alt="" />
+                    <img src={appUrl("/assets/images/shapes/h3-sidebar-blur-shpe.png")} alt="" />
                 </div>
                 <div className="hamburger_wrapper">
                     <div className="hamburger_inner">
                         <div className="hamburger_top d-flex align-items-center justify-content-between">
                             <div className="hamburger_logo">
-                                <Link href="/" className="mobile_logo">
-                                    <img src="/assets/images/oreks/logo.png" alt="Logo" />
+                                <Link href={appUrl("/")} className="mobile_logo">
+                                    <img src={appUrl("/assets/images/oreks/logo.png")} alt="Logo" />
                                 </Link>
                             </div>
                             <div className="hamburger_close">
@@ -181,8 +196,8 @@ export default function SiteHeader() {
                             <div className="col-12">
                                 <div className="header-wrapper">
                                     <div className="site_logo">
-                                        <Link className="logo" href="/">
-                                            <img src="/assets/images/oreks/logo.png" alt="Logo" />
+                                        <Link className="logo" href={appUrl("/")}>
+                                            <img src={appUrl("/assets/images/oreks/logo.png")} alt="Logo" />
                                         </Link>
                                     </div>
                                     <div className="menu-area d-none d-lg-inline-flex align-items-center">
@@ -218,7 +233,7 @@ export default function SiteHeader() {
                                             </button>
                                         </div>
                                         <div className="header-button d-lg-block d-none">
-                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href="/contact">
+                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href={appUrl("/contact")}>
                                                 <span className="btn-inner">
                                                     <span className="btn-text">
                                                         <span>Let’s Talk Us</span>
@@ -253,8 +268,8 @@ export default function SiteHeader() {
                             <div className="col-12">
                                 <div className="header-wrapper">
                                     <div className="site_logo">
-                                        <Link className="logo" href="/">
-                                            <img src="/assets/images/oreks/logo.png" alt="Logo" />
+                                        <Link className="logo" href={appUrl("/")}>
+                                            <img src={appUrl("/assets/images/oreks/logo.png")} alt="Logo" />
                                         </Link>
                                     </div>
                                     <div className="menu-area d-none d-lg-inline-flex align-items-center">
@@ -290,7 +305,7 @@ export default function SiteHeader() {
                                             </button>
                                         </div>
                                         <div className="header-button d-lg-block d-none">
-                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href="/contact">
+                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href={appUrl("/contact")}>
                                                 <span className="btn-inner">
                                                     <span className="btn-text">
                                                         <span>Let’s Talk Us</span>

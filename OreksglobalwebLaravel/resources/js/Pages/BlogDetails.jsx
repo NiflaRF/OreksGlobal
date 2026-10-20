@@ -9,13 +9,13 @@ export default function BlogDetails() {
         <PublicLayout>
             <Head title="Blog Details" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Blog <span className="title-gradient">details</span></>} breadcrumb={{ current: 'Blog details' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Blog <span className="title-gradient">details</span></>} breadcrumb={{ current: 'Blog details' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-blog-section section-gap">
                     <div className="container">
                         <div className="row rg-60">
                             <div className="col-lg-8">
                                 <div className="post-details-wrapper">
-                                    <div className="blog-images tj-fade-anim"><img src="/assets/images/oreks/gallery/lorry-van-cart-1.jpg" alt="Images" /></div>
+                                    <div className="blog-images tj-fade-anim"><img src={appUrl("/assets/images/oreks/gallery/lorry-van-cart-1.jpg")} alt="Images" /></div>
                                     <h2 className="title title-anim">5 Things to Check Before Buying a Vending Cart.</h2>
                                     <div className="blog-text">
                                         <p className="tj-fade-anim">Buying a vending cart is one of the biggest decisions you'll make when starting or expanding a soft drink retail business. It is not just a piece of equipment — it is the machine that will sit on the street, at your shop counter, or on the back of your lorry every single day.</p>
@@ -29,7 +29,7 @@ export default function BlogDetails() {
                                         </ul>
                                     </div>
                                     <div className="tj-post__navigation tj-fade-anim">
-                                        <div className="tj-nav-post__grid"><Link href="/blog"><i className="tji-window"></i></Link></div>
+                                        <div className="tj-nav-post__grid"><Link href={appUrl("/blog")}><i className="tji-window"></i></Link></div>
                                     </div>
                                 </div>
                             </div>

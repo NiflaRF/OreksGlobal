@@ -11,7 +11,7 @@ export default function Contact() {
                 <PageHeader
                     title={<>Contact <span className="title-gradient"> us</span></>}
                     breadcrumb={{ current: 'Contact us' }}
-                    banner="/assets/images/page-header/page-header-banner.webp"
+                    banner={appUrl("/assets/images/page-header/page-header-banner.webp")}
                     lead="Whether you are setting up a lorry, shop or table top vending machine, or need flavour syrup delivered island-wide, get in touch and our team will get back to you quickly."
                 />
 

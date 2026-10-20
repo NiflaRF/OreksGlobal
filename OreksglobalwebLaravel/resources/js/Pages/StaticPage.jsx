@@ -15,7 +15,7 @@ export default function StaticPage({ title, eyebrow, intro, highlights = [] }) {
                                     <span className="sec-subtitle sec-subtitle-mrc">{eyebrow}</span>
                                     <h1 className="sec-title sec-title-mrc">{title}</h1>
                                     <p className="sec-desc">{intro}</p>
-                                    <Link className="tj-btn-primary tj-btn-primary-mrc" href="/">
+                                    <Link className="tj-btn-primary tj-btn-primary-mrc" href={appUrl("/")}>
                                         <span className="btn-inner">
                                             <span className="btn-text"><span>Back to Home</span></span>
                                             <span className="btn-icon"><span><i className="tji-arrow-right-2"></i></span></span>

@@ -3,7 +3,7 @@ import { footerQuickLinks, footerServices } from '@/data/site';
 
 export default function SiteFooter() {
     return (
-        <footer className="footer-section footer-3 section-gap-top" data-bg-image="/assets/images/shapes/h3-footer-bg.png">
+        <footer className="footer-section footer-3 section-gap-top" data-bg-image={appUrl("/assets/images/shapes/h3-footer-bg.png")}>
             <div className="tj-text-marquee-mrc-lg-wrapper tj-text-marquee-mrc-lg-wrapper-2">
                 <div className="tj-marquee tj-text-marquee tj-text-marquee-mrc tj-text-marquee-mrc-lg" data-scroll-speed=".6" data-scroll-speed-targeted=".2">
                     {Array.from({ length: 12 }).map((_, index) => (
@@ -11,7 +11,7 @@ export default function SiteFooter() {
                             <div className="tj-text-marquee-title">
                                 OREKS
                                 <div className="tj-text-marquee-img">
-                                    <img src="/assets/images/icons/marquee-star-lg.png" alt="" />
+                                    <img src={appUrl("/assets/images/icons/marquee-star-lg.png")} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ export default function SiteFooter() {
                                                 <div className="tj-text-marquee-title">
                                                     OREKS
                                                     <div className="tj-text-marquee-img">
-                                                        <img src="/assets/images/icons/marquee-star-lg.png" alt="" />
+                                                        <img src={appUrl("/assets/images/icons/marquee-star-lg.png")} alt="" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,7 +125,7 @@ export default function SiteFooter() {
                                                             <div className="tj-copyright-text">
                                                                 <p>
                                                                     &copy;<span>2026</span>{' '}
-                                                                    <Link href="/">OREKS Crush</Link>. All rights reserved
+                                                                    <Link href={appUrl("/")}>OREKS Crush</Link>. All rights reserved
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -144,7 +144,7 @@ export default function SiteFooter() {
 
                 <div className="tj-section-line-wrapper bottom-0">
                     <div className="tj-section-line">
-                        <img src="/assets/images/shapes/section-line-shape-3.png" alt="" />
+                        <img src={appUrl("/assets/images/shapes/section-line-shape-3.png")} alt="" />
                     </div>
                 </div>
             </div>

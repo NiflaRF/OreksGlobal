@@ -1,6 +1,6 @@
 export default function PageHeader({ title, breadcrumb, banner, lead }) {
     return (
-        <section className="tj-page-header" data-bg-image="/assets/images/bg/pheader-bg.png">
+        <section className="tj-page-header" data-bg-image={appUrl("/assets/images/bg/pheader-bg.png")}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -11,7 +11,7 @@ export default function PageHeader({ title, breadcrumb, banner, lead }) {
                             {lead ? <p className="desc tj-fade-anim">{lead}</p> : null}
                             <div className="tj-page-link tj-fade-anim" data-delay=".4">
                                 <span><i className="tji-home"></i></span>
-                                <span><a href="/">{breadcrumb.home || 'Home'}</a></span>
+                                <span><a href={appUrl("/")}>{breadcrumb.home || 'Home'}</a></span>
                                 <span><i className="tji-arrow-right-6"></i></span>
                                 <span><span>{breadcrumb.current}</span></span>
                             </div>

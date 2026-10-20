@@ -8,7 +8,7 @@ export default function Feedback() {
         <PublicLayout>
             <Head title="Feedback" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Clients <span className="title-gradient"> Feedback</span></>} breadcrumb={{ current: 'Feedback' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Clients <span className="title-gradient"> Feedback</span></>} breadcrumb={{ current: 'Feedback' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-testimonial-section section-gap overflow-hidden">
                     <div className="container">
                         <div className="row">

@@ -1,0 +1,51 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install front-end dependencies
+        run: npm ci
+
+      - name: Build production assets
+        run: npm run build
+
+      - name: Deploy to live server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: server209.web-hosting.com
+          username: orekqvyv
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.cpanel.yml
+            **/node_modules/**
+            **/.env
+            **/storage/app/public/**
+            **/storage/logs/**
+            **/storage/framework/**
+
+      # Migration step disabled for now - hits the token-gated
+      # /deploy/migrate webhook (DeployController) to run
+      # `php artisan migrate --force` on the live server as the deploy's
+      # last step. Re-enable by uncommenting below.
+      # - name: Run database migrations
+      #   run: |
+      #     curl -sf -X POST "https://medical.oreksglobal.com/deploy/migrate" \
+      #       -H "X-Deploy-Token: ${{ secrets.DEPLOY_MIGRATE_TOKEN }}"

@@ -8,7 +8,7 @@ export default function Faq() {
         <PublicLayout>
             <Head title="FAQ" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Read <span className="title-gradient"> FAQS</span></>} breadcrumb={{ current: 'FAQS' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Read <span className="title-gradient"> FAQS</span></>} breadcrumb={{ current: 'FAQS' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-faq-section section-gap fix section-separator tj-theme-bg-2">
                     <div className="container">
                         <div className="row">

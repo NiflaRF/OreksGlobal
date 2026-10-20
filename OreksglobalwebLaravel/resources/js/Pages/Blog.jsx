@@ -8,7 +8,7 @@ export default function Blog() {
         <PublicLayout>
             <Head title="Blog" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Latest <span className="title-gradient"> blog</span></>} breadcrumb={{ current: 'Blog' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Latest <span className="title-gradient"> blog</span></>} breadcrumb={{ current: 'Blog' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-blog-area section-gap fix">
                     <div className="container">
                         <div className="row rg-40">

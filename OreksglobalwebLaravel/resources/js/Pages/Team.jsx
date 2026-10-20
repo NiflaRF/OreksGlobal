@@ -8,7 +8,7 @@ export default function Team() {
         <PublicLayout>
             <Head title="Our Team" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Our <span className="title-gradient"> team</span></>} breadcrumb={{ current: 'Our team' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Our <span className="title-gradient"> team</span></>} breadcrumb={{ current: 'Our team' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-team-section fix section-gap tj-theme-bg-2">
                     <div className="container">
                         <div className="row rg-30">
@@ -16,7 +16,7 @@ export default function Team() {
                                 <div className="col-lg-4 col-sm-6 tj-fade-anim" key={member.name}>
                                     <div className="team-item team-item-2">
                                         <div className="team-img">
-                                            <div className="bg-img" data-bg-image="/assets/images/shapes/team-img-bg-2.png"></div>
+                                            <div className="bg-img" data-bg-image={appUrl("/assets/images/shapes/team-img-bg-2.png")}></div>
                                             <img src={member.image} alt={member.name} />
                                         </div>
                                         <div className="team-info-wrap">

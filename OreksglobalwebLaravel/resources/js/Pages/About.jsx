@@ -11,7 +11,7 @@ export default function About() {
                 <PageHeader
                     title={<>About <span className="title-gradient"> us</span></>}
                     breadcrumb={{ current: 'About us' }}
-                    banner="/assets/images/oreks/gallery/flavor-taps.jpg"
+                    banner={appUrl("/assets/images/oreks/gallery/flavor-taps.jpg")}
                 />
 
                 <section className="tj-choose-section fix section-gap">
@@ -33,7 +33,7 @@ export default function About() {
                                 <div className="col-12 col-lg-6 tj-fade-anim" data-delay=".2" key={item.title}>
                                     <div className="choose-box choose-box-about">
                                         <div className="choose-shape-image">
-                                            <img src="/assets/images/shapes/about-feature-blur-shape.png" alt="" />
+                                            <img src={appUrl("/assets/images/shapes/about-feature-blur-shape.png")} alt="" />
                                         </div>
                                         <div className="choose-inner">
                                             <div className="choose-icon">
@@ -56,8 +56,8 @@ export default function About() {
                 <div className="tj-theme-bg-2 position-relative">
                     <div className="tj-client-section tj-fade-anim">
                         <div className="tj-section-line-wrapper top-0">
-                            <div className="tj-section-line"><img src="/assets/images/shapes/section-line-shape.png" alt="" /></div>
-                            <div className="tj-section-line"><img src="/assets/images/shapes/section-line-shape.png" alt="" /></div>
+                            <div className="tj-section-line"><img src={appUrl("/assets/images/shapes/section-line-shape.png")} alt="" /></div>
+                            <div className="tj-section-line"><img src={appUrl("/assets/images/shapes/section-line-shape.png")} alt="" /></div>
                         </div>
                         <div className="container-fluid px-0">
                             <div className="row">
@@ -69,10 +69,10 @@ export default function About() {
                                                 <div className="tj-marquee-item" key={name}>
                                                     <div className="tj-client-item">
                                                         <div className="tj-client-shape-image">
-                                                            <img src="/assets/images/shapes/h1-client-blur-shape.png" alt="" />
+                                                            <img src={appUrl("/assets/images/shapes/h1-client-blur-shape.png")} alt="" />
                                                         </div>
                                                         <span>
-                                                            <img src={`/assets/images/oreks/flavors/${name}.png`} alt={name.replace(/-/g, ' ')} />
+                                                            <img src={appUrl(`/assets/images/oreks/flavors/${name}.png`)} alt={name.replace(/-/g, ' ')} />
                                                         </span>
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@ export default function About() {
                         <div className="row">
                             <div className="col-lg-6 col-xxl-7 about-left about-main-left order-lg-1 order-2">
                                 <div className="about-img about-main-img tj-fade-anim fix">
-                                    <img src="/assets/images/oreks/gallery/lorry-van-cart-1.jpg" alt="OREKS Crush vending cart" />
+                                    <img src={appUrl("/assets/images/oreks/gallery/lorry-van-cart-1.jpg")} alt="OREKS Crush vending cart" />
                                 </div>
                             </div>
                             <div className="col-lg-6 col-xxl-5 about-content-area about-main-content-area order-lg-2 order-1">
@@ -102,7 +102,7 @@ export default function About() {
                                             OREKS Global (Pvt) Ltd supplies vending carts, machines and flavour syrup so entrepreneurs across Sri Lanka can start and grow a chilled-drinks business.
                                         </p>
                                         <div className="about-action">
-                                            <Link className="tj-btn-primary" href="/contact">
+                                            <Link className="tj-btn-primary" href={appUrl("/contact")}>
                                                 <span className="btn-inner">
                                                     <span className="btn-icon"><i className="tji-arrow-right-2"></i></span>
                                                     <span className="btn-text"><span>Get in touch</span></span>
@@ -127,7 +127,7 @@ export default function About() {
                                                     From our outlet in Rajagiriya we help entrepreneurs start and grow a chilled-drinks business with the OREKS Crush brand.
                                                 </p>
                                                 <div className="about-action">
-                                                    <Link className="tj-btn-primary" href="/contact">
+                                                    <Link className="tj-btn-primary" href={appUrl("/contact")}>
                                                         <span className="btn-inner">
                                                             <span className="btn-icon"><i className="tji-arrow-right-2"></i></span>
                                                             <span className="btn-text"><span>Get in touch</span></span>

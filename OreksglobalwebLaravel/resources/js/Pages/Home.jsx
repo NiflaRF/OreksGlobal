@@ -89,13 +89,13 @@ export default function Home() {
 
                 <div className="tj-text-marquee-section">
                     <div className="tj-text-marquee-wrapper">
-                        <div className="tj-marquee tj-text-marquee tj-text-marquee-mrc" data-scroll-speed=".6" data-scroll-speed-targeted=".2" data-bg-image="/assets/images/shapes/h3-marquee-bg.png">
+                        <div className="tj-marquee tj-text-marquee tj-text-marquee-mrc" data-scroll-speed=".6" data-scroll-speed-targeted=".2" data-bg-image={appUrl("/assets/images/shapes/h3-marquee-bg.png")}>
                             {marqueeItems.flatMap((item) => [
                                 <div className="tj-marquee-item" key={`${item}-1`}>
                                     <div className="tj-text-marquee-title">
                                         {item}
                                         <div className="tj-text-marquee-img">
-                                            <img src="/assets/images/icons/marquee-star.png" alt="" />
+                                            <img src={appUrl("/assets/images/icons/marquee-star.png")} alt="" />
                                         </div>
                                     </div>
                                 </div>,
@@ -103,7 +103,7 @@ export default function Home() {
                                     <div className="tj-text-marquee-title">
                                         {item}
                                         <div className="tj-text-marquee-img">
-                                            <img src="/assets/images/icons/marquee-star.png" alt="" />
+                                            <img src={appUrl("/assets/images/icons/marquee-star.png")} alt="" />
                                         </div>
                                     </div>
                                 </div>,
@@ -177,7 +177,7 @@ export default function Home() {
                                     <div className="sec-heading-inner">
                                         <span className="sec-subtitle sec-subtitle-mrc tj-fade-anim" data-direction="top">[ ABOUT OUR COMPANY ]</span>
                                         <h2 className="sec-title sec-title-mrc tj-split-text-1">
-                                            <img src="/assets/images/shapes/about-title-line.svg" alt="" /> We equip entrepreneurs with{' '}
+                                            <img src={appUrl("/assets/images/shapes/about-title-line.svg")} alt="" /> We equip entrepreneurs with{' '}
                                             <span>vending carts, machines &amp;</span> bold flavours to build a thriving drinks business.
                                         </h2>
                                     </div>
@@ -190,13 +190,13 @@ export default function Home() {
                             <div className="col-lg-6 col-xxl-7 about-left about-left-mrc order-lg-1 order-2">
                                 <div className="about-img-mrc fix">
                                     <div className="tj-fade-anim" data-delay=".4" data-direction="right">
-                                        <img src="/assets/images/oreks/gallery/lorry-van-cart-1.jpg" alt="OREKS Crush vending cart" />
+                                        <img src={appUrl("/assets/images/oreks/gallery/lorry-van-cart-1.jpg")} alt="OREKS Crush vending cart" />
                                     </div>
                                     <div className="tj-fade-anim" data-delay=".4" data-direction="right">
-                                        <img src="/assets/images/oreks/gallery/flavor-taps.jpg" alt="OREKS Crush flavour taps" />
+                                        <img src={appUrl("/assets/images/oreks/gallery/flavor-taps.jpg")} alt="OREKS Crush flavour taps" />
                                     </div>
                                     <div className="tj-fade-anim" data-delay=".3" data-direction="right">
-                                        <img src="/assets/images/oreks/flavors/orange-fizz.png" alt="OREKS Crush Orange Fizz" />
+                                        <img src={appUrl("/assets/images/oreks/flavors/orange-fizz.png")} alt="OREKS Crush Orange Fizz" />
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ export default function Home() {
                                                 <li><span><i className="tji-check-3"></i></span>Island-wide delivery</li>
                                             </ul>
                                             <div className="about-action-mrc tj-fade-anim">
-                                                <Link className="tj-btn-primary tj-btn-primary-mrc" href="/about">
+                                                <Link className="tj-btn-primary tj-btn-primary-mrc" href={appUrl("/about")}>
                                                     <span className="btn-inner">
                                                         <span className="btn-text"><span>About OREKS</span></span>
                                                         <span className="btn-icon"><span><i className="tji-arrow-right-2"></i></span></span>
@@ -245,7 +245,7 @@ export default function Home() {
                                         description="A focused set of supply, setup and support services for vending operators."
                                     />
                                     <div className="tj-service-action-mrc tj-fade-anim">
-                                        <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href="/services">
+                                        <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href={appUrl("/services")}>
                                             <span className="btn-inner">
                                                 <span className="btn-text"><span>More Services</span></span>
                                                 <span className="btn-icon"><span><i className="tji-arrow-right-2"></i></span></span>
@@ -291,7 +291,7 @@ export default function Home() {
                                         <h2 className="sec-title sec-title-mrc tj-split-text-1">Latest Portfolio</h2>
                                         <div className="sec-heading-right">
                                             <p className="sec-desc">A look at our vending machine models and a few of our 15 signature flavours, ready to supply island-wide.</p>
-                                            <Link className="tj-text-btn tj-text-btn-2" href="/portfolio">
+                                            <Link className="tj-text-btn tj-text-btn-2" href={appUrl("/portfolio")}>
                                                 <span className="btn-text"><span>View More Porfolio</span></span>
                                                 <span className="btn-icon"><i className="tji-arrow-right-5"></i></span>
                                             </Link>
@@ -422,7 +422,7 @@ export default function Home() {
                                         <div className="sec-heading-inner">
                                             <h2 className="sec-title sec-title-mrc tj-split-text-1">Explore Latest blog & Insights.</h2>
                                             <div className="tj-fade-anim">
-                                                <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href="/blog">
+                                                <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href={appUrl("/blog")}>
                                                     <span className="btn-inner">
                                                         <span className="btn-text"><span>View More Blogs</span></span>
                                                         <span className="btn-icon"><span><i className="tji-arrow-right-2"></i></span></span>
@@ -439,7 +439,7 @@ export default function Home() {
                                 <div className="col-12" key={post.title}>
                                     <article className="blog_item blog_item_mrc tj-fade-anim" data-delay=".2">
                                         <div className="blog_thumb">
-                                            <Link className="blog_image" href="/blog-details">
+                                            <Link className="blog_image" href={appUrl("/blog-details")}>
                                                 <img src={post.image} alt={post.title} />
                                             </Link>
                                         </div>
@@ -447,7 +447,7 @@ export default function Home() {
                                             <div className="blog_content_left">
                                                 <div className="blog_meta">
                                                     <div className="categories">
-                                                        <Link className="blog_category" href="/blog-details">
+                                                        <Link className="blog_category" href={appUrl("/blog-details")}>
                                                             {post.category}
                                                         </Link>
                                                     </div>
@@ -456,17 +456,17 @@ export default function Home() {
                                                     </div>
                                                 </div>
                                                 <h3 className="blog_title">
-                                                    <Link href="/blog-details">{post.title}</Link>
+                                                    <Link href={appUrl("/blog-details")}>{post.title}</Link>
                                                 </h3>
                                                 <div className="blog_author">
-                                                    <img src="/assets/images/users/user-list-img-1.png" alt="" className="author_img" />
-                                                    <span>By <Link href="/blog-details">OREKS Team</Link></span>
+                                                    <img src={appUrl("/assets/images/users/user-list-img-1.png")} alt="" className="author_img" />
+                                                    <span>By <Link href={appUrl("/blog-details")}>OREKS Team</Link></span>
                                                 </div>
                                             </div>
                                             <div className="blog_content_right">
                                                 <p className="blog_desc">{post.excerpt}</p>
                                                 <div className="blog_btn">
-                                                    <Link className="tj-icon-btn tj-icon-btn-mrc tj-icon-btn-2" href="/blog-details">
+                                                    <Link className="tj-icon-btn tj-icon-btn-mrc tj-icon-btn-2" href={appUrl("/blog-details")}>
                                                         <span className="btn-icon"><i className="tji-arrow-right-2"></i></span>
                                                         <span className="btn-text"><span>Read More</span></span>
                                                     </Link>

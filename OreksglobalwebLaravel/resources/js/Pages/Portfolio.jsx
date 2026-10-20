@@ -11,7 +11,7 @@ export default function Portfolio() {
                 <PageHeader
                     title={<>Our <span className="title-gradient"> products</span></>}
                     breadcrumb={{ current: 'Products' }}
-                    banner="/assets/images/page-header/page-header-banner.webp"
+                    banner={appUrl("/assets/images/page-header/page-header-banner.webp")}
                 />
 
                 <section className="tj-portfolio-section fix section-gap tj-theme-bg-2">

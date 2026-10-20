@@ -8,13 +8,13 @@ export default function ServiceDetails() {
         <PublicLayout>
             <Head title="Service Details" />
             <main id="primary" className="site-main">
-                <PageHeader title={<>Vending Machine <span className="title-gradient">Supply</span></>} breadcrumb={{ current: 'Vending Machine Supply' }} banner="/assets/images/page-header/page-header-banner.webp" />
+                <PageHeader title={<>Vending Machine <span className="title-gradient">Supply</span></>} breadcrumb={{ current: 'Vending Machine Supply' }} banner={appUrl("/assets/images/page-header/page-header-banner.webp")} />
                 <section className="tj-details section-gap tj-theme-bg-2">
                     <div className="container">
                         <div className="row rg-60">
                             <div className="col-lg-8">
                                 <div className="tj-details-wrapper">
-                                    <div className="tj-details-img tj-fade-anim"><img src="/assets/images/oreks/gallery/lorry-van-cart-1.jpg" alt="OREKS lorry/van vending cart on the road" /></div>
+                                    <div className="tj-details-img tj-fade-anim"><img src={appUrl("/assets/images/oreks/gallery/lorry-van-cart-1.jpg")} alt="OREKS lorry/van vending cart on the road" /></div>
                                     <h2 className="tj-details-title tj-split-text-1">Vending machines built for Sri Lanka's streets and shops.</h2>
                                     <div className="tj-details-text">
                                         <p className="tj-fade-anim">OREKS Global supplies carbonated soft drink vending machines under the OREKS Crush brand, built to sell chilled, freshly-mixed drinks wherever your customers are.</p>

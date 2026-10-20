@@ -11,7 +11,7 @@ export default function Services() {
                 <PageHeader
                     title={<>Our <span className="title-gradient">services</span></>}
                     breadcrumb={{ current: 'Services' }}
-                    banner="/assets/images/page-header/page-header-banner.webp"
+                    banner={appUrl("/assets/images/page-header/page-header-banner.webp")}
                 />
 
                 <section className="tj-service-main-section tj-theme-bg-2 fix section-gap">
@@ -29,12 +29,12 @@ export default function Services() {
                                 <div className="col-xl-4 col-md-6 tj-fade-anim" data-delay=".3" key={service.title}>
                                     <div className="tj-service-item-main">
                                         <div className="tj-service-shape-image">
-                                            <img src="/assets/images/shapes/service-item-main-shape.png" alt="" />
+                                            <img src={appUrl("/assets/images/shapes/service-item-main-shape.png")} alt="" />
                                         </div>
                                         <div className="tj-service-inner">
                                             <div className="tj-service-icon">
                                                 <img
-                                                    src={index === 0 ? '/assets/images/oreks/gallery/lorry-van-cart-1.jpg' : index === 1 ? '/assets/images/oreks/gallery/flavor-taps.jpg' : '/assets/images/oreks/gallery/lorry-van-cart-1.jpg'}
+                                                    src={appUrl(index === 1 ? '/assets/images/oreks/gallery/flavor-taps.jpg' : '/assets/images/oreks/gallery/lorry-van-cart-1.jpg')}
                                                     alt={service.title}
                                                     style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                                                 />
@@ -86,7 +86,7 @@ export default function Services() {
                                 <div className="choose-box-mrc choose-box-mrc-2">
                                     <div className="choose-inner">
                                         <div className="choose-bg-image">
-                                            <img src="/assets/images/choose/h3-choose-item-bg.webp" alt="" />
+                                            <img src={appUrl("/assets/images/choose/h3-choose-item-bg.webp")} alt="" />
                                         </div>
                                         <div className="choose-content">
                                             <h3 className="title tj-fs-h4">Island-Wide Reach</h3>
@@ -101,7 +101,7 @@ export default function Services() {
                                         <div className="choose-content">
                                             <h3 className="title tj-fs-h4">Ongoing Support</h3>
                                             <p className="desc">From installation to servicing and repairs, our team stays with you after the sale, not just on delivery day.</p>
-                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href="/contact">
+                                            <Link className="tj-btn-primary tj-btn-primary-mrc tj-btn-primary-mrc-sm" href={appUrl("/contact")}>
                                                 <span className="btn-inner">
                                                     <span className="btn-text"><span>Get a Quote</span></span>
                                                     <span className="btn-icon"><span><i className="tji-arrow-right-2"></i></span></span>
